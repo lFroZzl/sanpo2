@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: MyString
+  region: MyString
+  county: MyString
+  address: MyString
+  available: false
+
+two:
+  country: MyString
+  region: MyString
+  county: MyString
+  address: MyString
+  available: false
