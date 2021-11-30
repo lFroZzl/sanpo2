@@ -10,19 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_234931) do
+ActiveRecord::Schema.define(version: 2021_11_30_003026) do
 
   create_table "applicants", force: :cascade do |t|
     t.boolean "approved", default: false
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "My_id"
+    t.integer "Event_id"
+    t.index ["Event_id"], name: "index_applicants_on_Event_id"
+    t.index ["My_id"], name: "index_applicants_on_My_id"
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "my_id"
+    t.integer "Target_id"
+    t.integer "Event_id"
+    t.index ["Event_id"], name: "index_comments_on_Event_id"
+    t.index ["Target_id"], name: "index_comments_on_Target_id"
+    t.index ["my_id"], name: "index_comments_on_my_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -35,6 +45,12 @@ ActiveRecord::Schema.define(version: 2021_11_29_234931) do
     t.integer "participant"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "Location_id"
+    t.integer "User_id"
+    t.integer "Sport_id"
+    t.index ["Location_id"], name: "index_events_on_Location_id"
+    t.index ["Sport_id"], name: "index_events_on_Sport_id"
+    t.index ["User_id"], name: "index_events_on_User_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -68,6 +84,8 @@ ActiveRecord::Schema.define(version: 2021_11_29_234931) do
     t.boolean "vip", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "Location_id"
+    t.index ["Location_id"], name: "index_users_on_Location_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
