@@ -1,6 +1,6 @@
 class AddUserIdToEvents < ActiveRecord::Migration[5.2]
   def change
-    add_column :events, :User_id, :integer
-    add_index :events, :User_id
+    add_column :events, :user_id, :integer
+    add_index :events, :user_id
   end
 end

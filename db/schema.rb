@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 2021_11_30_003026) do
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "My_id"
-    t.integer "Event_id"
-    t.index ["Event_id"], name: "index_applicants_on_Event_id"
-    t.index ["My_id"], name: "index_applicants_on_My_id"
+    t.integer "my_id"
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_applicants_on_event_id"
+    t.index ["my_id"], name: "index_applicants_on_my_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 2021_11_30_003026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "my_id"
-    t.integer "Target_id"
-    t.integer "Event_id"
-    t.index ["Event_id"], name: "index_comments_on_Event_id"
-    t.index ["Target_id"], name: "index_comments_on_Target_id"
+    t.integer "target_id"
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_comments_on_event_id"
     t.index ["my_id"], name: "index_comments_on_my_id"
+    t.index ["target_id"], name: "index_comments_on_target_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 2021_11_30_003026) do
     t.integer "participant"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "Location_id"
-    t.integer "User_id"
-    t.integer "Sport_id"
-    t.index ["Location_id"], name: "index_events_on_Location_id"
-    t.index ["Sport_id"], name: "index_events_on_Sport_id"
-    t.index ["User_id"], name: "index_events_on_User_id"
+    t.integer "location_id"
+    t.integer "user_id"
+    t.integer "sport_id"
+    t.index ["location_id"], name: "index_events_on_location_id"
+    t.index ["sport_id"], name: "index_events_on_sport_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(version: 2021_11_30_003026) do
     t.boolean "vip", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "Location_id"
-    t.index ["Location_id"], name: "index_users_on_Location_id"
+    t.integer "location_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["location_id"], name: "index_users_on_location_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

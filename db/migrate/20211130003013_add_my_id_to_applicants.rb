@@ -1,6 +1,7 @@
 class AddMyIdToApplicants < ActiveRecord::Migration[5.2]
   def change
-    add_column :applicants, :My_id, :integer
-    add_index :applicants, :My_id
+    add_column :applicants, :my_id, :integer
+    add_index :applicants, :my_id
   end
 end
+

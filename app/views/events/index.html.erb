@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Host</th>
       <th>Title</th>
       <th>Min age</th>
       <th>Max age</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
+        <td><%= event.event_host.name %></td>
         <td><%= event.title %></td>
         <td><%= event.min_age %></td>
         <td><%= event.max_age %></td>
@@ -35,5 +37,7 @@
 </table>
 
 <br>
+
+
 
 <%= link_to 'New Event', new_event_path %>
