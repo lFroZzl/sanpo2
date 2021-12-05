@@ -1,5 +1,7 @@
 class SportsController < InheritedResources::Base
 
+before_action :authenticate_user!
+
 before_action :set_sport, only: [:show, :edit, :update, :destroy]
 
  def index

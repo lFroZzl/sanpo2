@@ -7,10 +7,16 @@ class User < ApplicationRecord
 
   belongs_to :location, optional: true
 
-  enum role: [ :user, :admin ]
-
   has_many :events
   has_many :comments
   has_many :applicants
+
+  enum role: [ :user, :admin ]
+
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= :user
+  end
   
 end
