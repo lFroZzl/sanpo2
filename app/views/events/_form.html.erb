@@ -2,11 +2,10 @@
   <% if event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
       <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -16,7 +15,7 @@
     <%= form.text_field :title %>
   </div>
 
-   <div class="field">
+  <div class="field">
     <%= form.label :sport %>
     <%= form.select :sport_id, Sport.all.pluck(:name, :id)%>
   </div>

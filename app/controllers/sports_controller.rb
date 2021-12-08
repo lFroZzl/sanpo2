@@ -1,4 +1,4 @@
-class SportsController < InheritedResources::Base
+class SportsController < ApplicationController
 
 before_action :authenticate_user!
 
@@ -57,7 +57,7 @@ before_action :set_sport, only: [:show, :edit, :update, :destroy]
    end
 
    def sport_params
-     params.require(:sport).permit(:name)
+     params.require(:sport).permit(:name, :category)
    end
 
 end

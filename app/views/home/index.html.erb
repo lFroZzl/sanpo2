@@ -1,8 +1,14 @@
 <%= render 'navbar' %>
-    <div class="mx-auto d-block">
-        <%= image_tag("/assets/index.jpg", class: "index-image mx-auto d-block") %>
-    </div>
 
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 
+<div class="mx-auto d-block">
+  <%= image_tag("/assets/index.jpg", class: "index-image mx-auto d-block") %>
+</div>
 
 <%= render 'footer' %>

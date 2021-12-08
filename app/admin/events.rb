@@ -5,7 +5,7 @@ ActiveAdmin.register Event do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :title, :min_age, :max_age, :note, :start_date, :end_date, :participant, :location_id, :user_id, :sport_id
+  permit_params :title, :min_age, :max_age, :note, :start_date, :end_date, :participant, :location_id, :user_id, :sport_id
   #
   # or
   #
